@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DexPort
 
-## Getting Started
+**DexPort** is a cross-chain decentralized exchange (DEX) frontend built with Next.js, TypeScript, RainbowKit, and Wagmi. It provides a sleek interface for users to connect wallets and swap tokens across EVM-compatible blockchains such as Ethereum, Polygon, Cronos, Arbitrum, Base, and more.
 
-First, run the development server:
+---
+
+## 📸 Dashboard Preview
+
+![Dashboard Screenshot](./public/images/dashboard.png)
+
+> A clean, modern dashboard for multi-chain token swaps with wallet integration and real-time interaction.
+
+---
+
+## ✨ Features
+
+- 🔗 **Multi-Chain Support**: Ethereum, Polygon, Cronos, Arbitrum, Base, Sepolia
+- 🦄 **Wallet Integration**: MetaMask, WalletConnect, Rainbow, etc.
+- ⚙️ **Dynamic ABIs**: Loads token and contract ABIs for interacting with smart contracts
+- ⚡ **React + TypeScript**: Built with Next.js and type-safe hooks
+- 🌐 **Server-Side Rendering (SSR)**: Fast, web3-ready app rendering
+
+---
+
+## 🧱 Tech Stack
+
+- **Next.js** – Web app framework
+- **TypeScript** – Type safety
+- **RainbowKit** – Wallet UI
+- **Wagmi** – Ethereum hooks
+- **Ethers.js** – Smart contract interaction
+- **JSON ABIs** – Token contract definitions
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/aimaster-dev/dexport.git
+cd dexport
+````
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create `.env.local`
+
+```env
+NEXT_PUBLIC_ENABLE_TESTNETS=true
+NEXT_PUBLIC_PROJECT_ID=your_walletconnect_project_id
+```
+
+> 🔑 Get your WalletConnect Project ID at: [https://cloud.walletconnect.com](https://cloud.walletconnect.com)
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔗 Chains
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+DexPort currently supports the following networks:
 
-## Learn More
+* Ethereum Mainnet
+* Polygon
+* Arbitrum
+* Cronos
+* Base
+* Sepolia (testnet, optional)
 
-To learn more about Next.js, take a look at the following resources:
+To enable testnets, make sure your `.env.local` includes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_ENABLE_TESTNETS=true
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📦 ABI Management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ABIs are stored in `src/abis/` and dynamically loaded based on token name:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```ts
+import { getAbi } from '@/utils/abis';
+
+const abi = getAbi({ name: 'USDC', address: '0x...' });
+```
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+## 🔗 Repository
+
+GitHub: [https://github.com/aimaster-dev/dexport](https://github.com/aimaster-dev/dexport)
