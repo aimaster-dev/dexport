@@ -6,7 +6,7 @@
 
 ## 📸 Dashboard Preview
 
-![Dashboard Screenshot](./public/images/dashboard.png)
+![Dashboard Screenshot](./public/dashboard.png)
 
 > A clean, modern dashboard for multi-chain token swaps with wallet integration and real-time interaction.
 
